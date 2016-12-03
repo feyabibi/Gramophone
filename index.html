@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="img/www.ico.la_76a72f23244aed1f424bc84ad4fd1e96_64X64.ico" type="image/x-icon">
+	<script>
+		var Ratio=1 / window.devicePixelRatio;
+		document.write('<meta name="viewport" content="width=device-width,initial-scale='+Ratio+',minimum-scale='+Ratio+',maximum-scale='+Ratio+',user-scalable=no" />');
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/music.css">
+	<script src="lyrics/lyrics.js"></script>
+	<title>音乐播放器</title>
+</head>
+<body>
+	<!--播放页面 -->
+	<div id="wrapper">
+		<!-- bg  背景图 -->
+		<div class="bg"></div>
+		<div class="bg-black"></div>
+		<!-- header  顶部歌曲名,歌手名 -->
+		<div class="header">
+			<div id="tofirstpage"></div>
+			<div class="song" id="songName"></div>
+			<div class="artist" id="artist"></div>
+		</div>
+		<!-- center  中间部分 -->
+		<div class="center">
+			<img id="styli" class="play-needle" src="img/play_needle.png" alt="">
+			<div class="disk-bg"></div>
+			<div class="disk">
+				<img class="disk-album-bg" src="" alt=""  >
+				<img class="disk-music-bg" src="img/play_disc.png" alt="">
+			</div>
+			<div class="disk">
+				<img class="disk-album-bg" src="" alt=""  >
+				<img class="disk-music-bg" src="img/play_disc.png" alt="">
+			</div>
+		</div>
+		<!-- 歌词 -->
+		<div class="lyric">
+			<div id="line"></div>
+			<ul></ul>
+		</div>
+		<!-- footer 底部 -->
+		<div class="footer">
+			<!--process 进度条部分 -->
+			<div id="process">
+				<!--currentTime 当前时间 -->
+				<span id="currentTime">00:00</span>
+				<!--process-bar 进度条 -->
+				<div id="process-bar">
+					<div id="process-all"></div>
+					<div id="process-cur">
+						<span id="cur-btn"></span>
+					</div>
+					<div id="process-ready"></div>
+				</div>
+				<!--total-time 总时间 -->
+				<span id="total-time"></span>
+			</div>
+			<div id="control">
+				<!--loop 循环按钮  -->
+                <span class="loop"></span>
+                <!--pre 上一曲按钮  -->
+                <span class="pre"></span>
+                <!--play 播放按钮  -->
+                <span class="play"></span>
+                <!--pause 暂停按钮  -->
+                <span class="pause" style="display:none"></span>
+                <!--next 下一曲按钮  -->
+                <span class="next"></span>
+                <!--list 列表按钮  -->
+                <span class="list"></span>
+            </div>
+		</div>
+		<div id="list-mask"></div>
+		<div id="play-list">
+			<div>
+				<div class="list-title">播放列表(<span id="playListCount"></span>)</div>
+				<div class="list-title-close">×</div>
+			</div>
+			<!-- 歌曲列表 -->
+			<ul></ul>
+		</div>
+		<!-- 主页 -->
+		<div id="stage">
+			<div class="whale"></div>
+		  	<section class="container">
+		   		<div class="meet1"><img src="img/1.jpg" alt=""></div> 
+			    <div class="meet2"><img src="img/2.jpg" alt=""></div>
+			    <div class="meet3"><img src="img/3.jpg" alt=""></div>
+			    <div class="meet4"><img src="img/4.jpg" alt=""></div>
+			    <div class="meet5"><img src="img/5.jpg" alt=""></div>
+			    <div class="meet6"><img src="img/6.jpg" alt=""></div>
+		  	</section>
+		</div>
+	</div>
+	<div id="TransPage"><img src="img/xzfk.gif" alt=""></div>
+	<div style="display:none">
+		<audio  src="mp3/1Angelika Vee - Burn.mp3"></audio>
+	</div>
+</body>
+</html>
+<script src='js/move.js' type="text/javascript"></script>
+<script src="js/music.js" type="text/javascript"></script>
+<script>
+window.onload=function () {
+    var TransPage = document.getElementById('TransPage');
+    // 页面被刷新时,白雾退散
+    setTimeout(function() {
+        move(TransPage, { opacity: 0 }, 1000, 'linear', function() {
+            TransPage.style.display = 'none';
+        });
+    }, 500);
+};
+</script>
+
